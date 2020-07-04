@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * MusicInventory.java
+ * Justin McVicker
  */
 
 // TO-DO:
@@ -75,6 +74,8 @@ public class MusicInventory extends Application {
         // to-do: replace with hashing, hash table instead of observable list?
 
     }
+    
+
     
     public void removeRelease(Release r) {
         System.out.println(inventoryList.size());
@@ -319,6 +320,10 @@ public class MusicInventory extends Application {
         
         dialog.setResultConverter((ButtonType button) -> {
             if (button == ButtonType.OK) {
+                inventoryList.get(releaseTable.getSelectionModel().getSelectedIndex()).setArtist(arField.getText());
+                inventoryList.get(releaseTable.getSelectionModel().getSelectedIndex()).setTitle(alField.getText());
+                inventoryList.get(releaseTable.getSelectionModel().getSelectedIndex()).setQuantity(stringToInt(quField.getText()));
+                inventoryList.get(releaseTable.getSelectionModel().getSelectedIndex()).setPrice(parseFloat(prField.getText()));
                 int index = releaseTable.getSelectionModel().getSelectedIndex();
                 Release release  = releaseTable.getItems().get(index);
                 System.out.println(release.getTitle());
